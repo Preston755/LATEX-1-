@@ -1,0 +1,75 @@
+\documentclass[coursework,bachelor,och]{SCWorks}
+\usepackage{preamble}
+
+\begin{document}
+
+% Кафедра
+\chair{математической кибернетики и компьютерных наук}
+
+% Тема работы
+\title{Сравнение алгоритмов сортировки: быстрая сортировка vs сортировка слиянием}
+
+% Курс
+\course{1}
+
+% Группа
+\group{111}
+
+% Специальность/направление
+\napravlenie{02.03.02 "--- Фундаментальная информатика и информационные технологии}
+
+\begin{center}
+Курсовая работа
+\end{center}
+
+% Фамилия, имя, отчество в родительном падеже
+\author{Попов Даниил Евгеньевич}
+
+% Заведующий кафедрой
+\chtitle{доцент, к.\,ф.-м.\,н.}
+\chname{С.\,В.\,Миронов}
+
+% Научный руководитель
+\satitle{доцент, к.\,ф.-м.\,н.}
+\saname{Г.\,Г.\,Наркайтис}
+
+% Год выполнения
+\begin{centre}
+\date{2026}
+\end{centre}
+
+\maketitle
+
+\secNumbering
+
+\tableofcontents
+
+\intro
+\input{sections/intro}
+
+\input{sections/theory}
+
+\input{sections/implementation}
+
+\input{sections/comparison}
+
+\conclusion
+\input{sections/conclusion}
+
+\nocite{*}
+\bibliographystyle{ugost2003}
+\bibliography{thesis}
+
+\appendix
+
+\section{Исходный код быстрой сортировки на C++}
+\label{app:quicksort}
+
+\inputminted{cpp}{code/quicksort.cpp}
+
+\section{Исходный код сортировки слиянием на Python}
+\label{app:mergesort}
+
+\inputminted{python}{code/mergesort.py}
+
+\end{document}

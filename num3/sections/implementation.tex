@@ -1,0 +1,57 @@
+\section{Реализация алгоритмов}
+
+\subsection{Быстрая сортировка на C++}
+
+Реализация быстрой сортировки выполнена на языке C++ с использованием
+стандартной библиотеки \texttt{<vector>} и \texttt{<chrono>} для замера
+времени выполнения. Полный исходный код приведён в приложении~\ref{app:quicksort}.
+
+Ключевой функцией является \mintinline{cpp}{partition}, которая разделяет
+подмассив \mintinline{cpp}{arr[low..high]} относительно опорного элемента
+\mintinline{cpp}{arr[high]} и возвращает его итоговый индекс.
+Ниже приведён фрагмент основной рекурсивной функции:
+
+\begin{minted}{cpp}
+void quickSort(std::vector<int>& arr, int low, int high) {
+    if (low < high) {
+        int pi = partition(arr, low, high);
+        quickSort(arr, low, pi - 1);
+        quickSort(arr, pi + 1, high);
+    }
+}
+\end{minted}
+
+Функция \mintinline{cpp}{quickSort} принимает ссылку на вектор \mintinline{cpp}{arr},
+а также границы текущего подмассива"--- \mintinline{cpp}{low} и \mintinline{cpp}{high}.
+Рекурсия завершается, когда \mintinline{cpp}{low >= high}, то есть подмассив
+содержит не более одного элемента~\cite{cppreference}.
+
+\subsection{Сортировка слиянием на Python}
+
+Реализация сортировки слиянием выполнена на языке Python~3. Полный исходный
+код приведён в приложении~\ref{app:mergesort}.
+
+Алгоритм состоит из двух функций. Функция \mintinline{python}{merge_sort}
+рекурсивно делит массив пополам, а функция \mintinline{python}{merge}
+выполняет слияние двух отсортированных подмассивов. Ниже приведён
+фрагмент функции слияния:
+
+\begin{minted}{python}
+def merge(arr: list, left: int, mid: int, right: int) -> None:
+    left_part  = arr[left:mid + 1]
+    right_part = arr[mid + 1:right + 1]
+    i = j = 0
+    k = left
+    while i < len(left_part) and j < len(right_part):
+        if left_part[i] <= right_part[j]:
+            arr[k] = left_part[i]; i += 1
+        else:
+            arr[k] = right_part[j]; j += 1
+        k += 1
+\end{minted}
+
+Переменные \mintinline{python}{i}, \mintinline{python}{j} и
+\mintinline{python}{k} являются индексами левого подмассива,
+правого подмассива и результирующего массива соответственно.
+Стабильность алгоритма обеспечивается строгим неравенством
+\mintinline{python}{left_part[i] <= right_part[j]}~\cite{pythondocs}.

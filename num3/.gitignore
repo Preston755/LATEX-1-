@@ -1,0 +1,17 @@
+*.aux
+*.fls
+*.log
+*.out
+*.fdb_latexmk
+*.gz
+*.thm
+*.toc
+*.pygtex
+*.pygstyle
+*.synctex
+*.pyg
+*.blg
+*.bbl
+*.DS_Store
+*_minted
+.vscode/
